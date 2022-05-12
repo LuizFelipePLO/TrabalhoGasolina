@@ -203,65 +203,65 @@ public class CentroDistribuicaoTest {
     @Test
     public void encomendaCombustivelComTanqueNormalEmPostoComumTest() {
         setUpTanqueNormal();
-        int[] expectedResult = { 485, 9790, 1175, 1250 };
+        int[] expectedResult = { 485, 9790, 1213, 1213 };
         int[] result = cd.encomendaCombustivel(300, TIPOPOSTO.COMUM);
-        Assert.assertEquals(expectedResult, result);
+        Assert.assertArrayEquals(expectedResult, result);
     }
 
     @Test
     public void encomendaCombustivelComTanqueNormalEmPostoComumEstrategico() {
         setUpTanqueNormal();
-        int[] expectedResult = { 485, 9790, 1175, 1250 };
+        int[] expectedResult = { 485, 9790, 1213, 1213 };
         int[] result = cd.encomendaCombustivel(300, TIPOPOSTO.ESTRATEGICO);
-        Assert.assertEquals(expectedResult, result);
+        Assert.assertArrayEquals(expectedResult, result);
     }
 
     @Test
     public void encomendaCombustivelComTanqueSobravisoEmPostoComumTest() {
         setUpTanqueSobraviso();
-        int[] expectedResult = { 292, 3895, 963, 1250 };
+        int[] expectedResult = { 293, 3895, 982, 982 };
         int[] result = cd.encomendaCombustivel(300, TIPOPOSTO.COMUM);
-        Assert.assertEquals(expectedResult, result);
+        Assert.assertArrayEquals(expectedResult, result);
     }
 
     @Test
     public void encomendaCombustivelComTanqueSobravisoEmPostoEstrategicoTest() {
         setUpTanqueSobraviso();
-        int[] expectedResult = { 285, 3790, 925, 1250 };
+        int[] expectedResult = { 285, 3790, 963, 963 };
         int[] result = cd.encomendaCombustivel(300, TIPOPOSTO.ESTRATEGICO);
-        Assert.assertEquals(expectedResult, result);
+        Assert.assertArrayEquals(expectedResult, result);
     }
 
     @Test
     public void encomendaCombustivelComTanqueEmergenciaEmPostoComumTest() {
         setUpTanqueEmergencia();
-        int[] expectedResult = { -14, 3395, 0, 863 };
+        int[] expectedResult = { -14, 0, 0, 0 };
         int[] result = cd.encomendaCombustivel(300, TIPOPOSTO.COMUM);
-        Assert.assertEquals(expectedResult, result);
+        Assert.assertArrayEquals(expectedResult, result);
     }
 
     @Test
     public void encomendaCombustivelComTanqueEmergenciaEmPostoEstrategicoTest() {
         setUpTanqueEmergencia();
-        int[] expectedResult = { 93, 3395, 0, 863 };
+        int[] expectedResult = { 93, 3395, 882, 882 };
         int[] result = cd.encomendaCombustivel(300, TIPOPOSTO.ESTRATEGICO);
-        Assert.assertEquals(expectedResult, result);
+        Assert.assertArrayEquals(expectedResult, result);
     }
 
     @Test
     public void encomendaCombustivelValorInvalidoTest() {
         setUpTanqueNormal();
-        int[] expectedResult = { -7, 9790, 1175, 1250 };
+        int[] expectedResult = { -7, 0, 0, 0 };
         int[] result = cd.encomendaCombustivel(-300, TIPOPOSTO.COMUM);
-        Assert.assertEquals(expectedResult, result);
+        Assert.assertArrayEquals(expectedResult, result);
     }
 
     @Test
     public void encomendaCombustivelReservaInsuficientelTest() {
         setUpTanqueNormal();
-        int[] expectedResult = { -21, 9790, 1175, 1250 };
+        int[] expectedResult = { -21, 0, 0, 0 };
         int[] result = cd.encomendaCombustivel(20000, TIPOPOSTO.COMUM);
-        Assert.assertEquals(expectedResult, result);
+        Assert.assertArrayEquals(expectedResult, result);
     }
 
 }
